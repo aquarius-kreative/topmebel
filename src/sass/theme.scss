@@ -1,0 +1,67 @@
+@import url('https://fonts.googleapis.com/css?family=Rubik');
+
+$global-link-color: #b23b2f;
+$global-link-hover-color: #a50000;
+$background-default-background: #f4f4f4;
+$base-heading-color: #332451;
+$base-body-color: #333;
+$base-link-hover-text-decoration: none;
+$base-body-font-size: 14px;
+$base-body-font-family: 'Rubik', sans-serif;
+$base-heading-font-family: 'Rubik', sans-serif;
+$base-body-background: #f1f1f1;
+$navbar-nav-item-height: 50px;
+
+$tm-color-red: #b23b2f;
+$tm-color-blue: #332451;
+
+@import "uikit/src/scss/variables-theme.scss";
+@import "uikit/src/scss/mixins-theme.scss";
+
+@mixin hook-card() {
+  color: #000;
+}
+
+@import "uikit/src/scss/uikit-theme.scss";
+
+body {
+  min-width: 1200px;
+}
+
+.tm-logo {
+  max-height: 45px;
+  img {
+    height: 100%;
+  }
+}
+
+.tm-header-menu {
+  background: $tm-color-red;
+  & > li > a {
+    font-weight: 600;
+  }
+}
+
+.tm-heading {
+  max-width: 800px;
+  h1 {
+    font-weight: 700;
+    font-size: 70px;
+    text-shadow: 0 3px 10px rgba(0, 0, 0, 0.75);
+  }
+  p {
+    color: #fff;
+    font-weight: 400;
+    font-size: 24px;
+    text-shadow: 0 3px 5px rgba(0, 0, 0, 0.75);
+  }
+}
+
+.tm-header-fog {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.25);
+}

@@ -2,14 +2,14 @@
 
 $global-link-color: #b23b2f;
 $global-link-hover-color: #a50000;
-$background-default-background: #f4f4f4;
+$background-default-background: #ffffff;
 $base-heading-color: #332451;
 $base-body-color: #333;
 $base-link-hover-text-decoration: none;
 $base-body-font-size: 14px;
 $base-body-font-family: 'Rubik', sans-serif;
 $base-heading-font-family: 'Rubik', sans-serif;
-$base-body-background: #f1f1f1;
+$base-body-background: #ffffff;
 $navbar-nav-item-height: 50px;
 
 $tm-color-red: #b23b2f;
@@ -64,4 +64,19 @@ body {
   top: 0;
   right: 0;
   background: rgba(0, 0, 0, 0.25);
+}
+
+.tm-frontpage {
+  position: relative;
+  &::before {
+    background: url("../img/div-white.svg");
+    content: '';
+    display: block;
+    position: absolute;
+    top: -44px;
+    left: 0;
+    right: 0;
+    height: 44px;
+    background-repeat: repeat-x;
+  }
 }

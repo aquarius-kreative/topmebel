@@ -13,15 +13,27 @@ const extractCss = new ExtractTextPlugin({
 });
 
 module.exports = {
-    mode: 'development',
     entry: {
+        vendor: ['uikit'],
         app: './src/js/index.js'
     },
     output: {
         filename: '[name].topmebel.js',
+        chunkFilename: '[name].topmebel.js',
         path: path.resolve(__dirname, 'assets/js')
     },
-    devtool: 'inline-source-map',
+    optimization: {
+        splitChunks: {
+            cacheGroups: {
+                vendor: {
+                    chunks: 'initial',
+                    name: 'vendor',
+                    test: 'vendor',
+                    enforce: true
+                },
+            }
+        }
+    },
     module: {
         rules: [
             {
@@ -60,13 +72,13 @@ module.exports = {
                 }]
             },
             {
-                test: /\.(png|jpg|gif)$/,
+                test: /\.(png|jpg|gif|svg)$/,
                 use: [
                     {
                         loader: 'file-loader',
                         options: {
                             context: 'public',
-                            name: 'assets/images/[name].[ext]?v=[hash]',
+                            name: '../images/[name].[ext]?v=[hash]',
                             publicPath: './',
                         },
                     },
@@ -82,8 +94,8 @@ module.exports = {
             dir: path.resolve(__dirname, 'inc'),
             files: ['enqueue.php'],
             rules: [{
-                search: new RegExp('\'_bld_(.*?)\'','ig'),
-                replace: function() {
+                search: new RegExp('\'_bld_(.*?)\'', 'ig'),
+                replace: function () {
                     return `'_bld_${Number(new Date())}'`
                 }
             }]

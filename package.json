@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "watch": "webpack --watch --color",
+    "watch": "webpack --watch --mode=production",
     "start": "webpack-dev-server --open",
     "build": "webpack"
   },

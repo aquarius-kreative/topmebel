@@ -39,6 +39,19 @@ body {
   background: $tm-color-red;
   & > li > a {
     font-weight: 600;
+    color: #ffd6d3;
+    &:active {
+      color: white;
+    }
+    &:focus {
+      color: white;
+    }
+  }
+  & > li.uk-active > a {
+    color: white;
+  }
+  & > li:hover > a {
+    color: white;
   }
 }
 
@@ -70,6 +83,40 @@ body {
   position: relative;
   &::before {
     background: url("../img/div-white.svg");
+    content: '';
+    display: block;
+    position: absolute;
+    top: -44px;
+    left: 0;
+    right: 0;
+    height: 44px;
+    background-repeat: repeat-x;
+  }
+}
+
+.tm-title-border {
+  border-left: 4px solid $tm-color-red;
+  padding-left: 5px;
+}
+
+.tm-product-head {
+  position: absolute;
+  top: -8px;
+  left: 8px;
+  background: $tm-color-blue;
+  padding: 5px 10px;
+  color: white;
+  h3 {
+    margin: 0;
+    color: white;
+  }
+}
+
+.tm-footer {
+  background: $tm-color-blue;
+  position: relative;
+  &::before {
+    background: url("../img/div-violet.svg");
     content: '';
     display: block;
     position: absolute;

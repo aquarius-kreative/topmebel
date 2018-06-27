@@ -5,7 +5,8 @@
  */
 
 get_header(); ?>
-    <div class="uk-position-relative uk-visible-toggle uk-light" uk-slideshow="autoplay: true; max-height: 790; animation: fade">
+    <div class="uk-position-relative uk-visible-toggle uk-light"
+         uk-slideshow="autoplay: true; max-height: 790; animation: fade">
         <ul class="uk-slideshow-items">
             <li>
                 <img src="<?php echo get_template_directory_uri() . '/img/slide.jpg'; ?>" alt="" uk-cover>
@@ -22,27 +23,25 @@ get_header(); ?>
 
         <div class="uk-position-center">
             <div class="uk-text-center tm-heading">
-	            <?php // Show the selected frontpage content.
-	            if ( have_posts() ) :
-		            while ( have_posts() ) : the_post();
-			            get_template_part( 'template-parts/page/content', 'front-page' );
-		            endwhile;
-	            else :
-		            get_template_part( 'template-parts/post/content', 'none' );
-	            endif; ?>
+				<?php // Show the selected frontpage content.
+				if ( have_posts() ) :
+					while ( have_posts() ) : the_post();
+						get_template_part( 'template-parts/page/content', 'front-page' );
+					endwhile;
+				else :
+					get_template_part( 'template-parts/post/content', 'none' );
+				endif; ?>
             </div>
         </div>
     </div>
     <div class="tm-frontpage uk-padding uk-padding-remove-horizontal uk-margin-large-bottom">
         <div class="uk-container">
+            <div class="uk-card uk-card-small uk-text-center uk-margin-bottom uk-card-body">
+                <h2 class="">Каталог продукции</h2>
+                <p>Предлагаем шкафы-купе, кухни и спальни, офисную мебель, детские, гордеробные. Любая мебель на
+                    заказ в разных дизайнерских вариациях.</p>
+            </div>
             <div class="uk-flex uk-flex-wrap uk-child-width-1-3 uk-grid-small uk-grid-match" uk-grid>
-                <div>
-                    <div class="uk-card uk-card-small uk-card-body">
-                        <h2 class="tm-title-border">Каталог продукции</h2>
-                        <p>Предлагаем шкафы-купе, кухни и спальни, офисную мебель, детские, гордеробные. Любая мебель на
-                            заказ в разных дизайнерских вариациях.</p>
-                    </div>
-                </div>
                 <div>
                     <a href="#" class="tm-product uk-card-hover uk-position-relative">
                         <div class="uk-cover-container">

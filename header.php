@@ -33,74 +33,80 @@
                 </div>
 
                 <div class="uk-navbar-right uk-position-relative">
-                    <ul class="uk-navbar-nav tm-header-menu">
-                        <li class="uk-active"><a href="#">Главная</a></li>
-                        <li>
-                            <a href="#">Каталог</a>
-                            <div class="uk-navbar-dropdown uk-navbar-dropdown-width-3">
-                                <div class="uk-navbar-dropdown-grid uk-child-width-1-3" uk-grid>
-                                    <div>
-                                        <ul class="uk-nav uk-navbar-dropdown-nav">
-                                            <li class="uk-nav-header">Кухни</li>
-                                            <li class="uk-nav-divider"></li>
-                                            <li><a href="#">Item</a></li>
-                                            <li><a href="#">Item</a></li>
-                                            <li><a href="#">Item</a></li>
-                                        </ul>
-                                    </div>
-                                    <div>
-                                        <ul class="uk-nav uk-navbar-dropdown-nav">
-                                            <li class="uk-nav-header">Шкафы-купе</li>
-                                            <li class="uk-nav-divider"></li>
-                                            <li><a href="#">Item</a></li>
-                                            <li><a href="#">Item</a></li>
-                                            <li><a href="#">Item</a></li>
-                                        </ul>
-                                    </div>
-                                    <div>
-                                        <ul class="uk-nav uk-navbar-dropdown-nav">
-                                            <li class="uk-nav-header">Столы и стулья</li>
-                                            <li class="uk-nav-divider"></li>
-                                            <li><a href="#">Item</a></li>
-                                            <li><a href="#">Item</a></li>
-                                            <li><a href="#">Item</a></li>
-                                        </ul>
-                                    </div>
-                                    <div>
-                                        <ul class="uk-nav uk-navbar-dropdown-nav">
-                                            <li class="uk-nav-header">Кухни</li>
-                                            <li class="uk-nav-divider"></li>
-                                            <li><a href="#">Item</a></li>
-                                            <li><a href="#">Item</a></li>
-                                            <li><a href="#">Item</a></li>
-                                        </ul>
-                                    </div>
-                                    <div>
-                                        <ul class="uk-nav uk-navbar-dropdown-nav">
-                                            <li class="uk-nav-header">Шкафы-купе</li>
-                                            <li class="uk-nav-divider"></li>
-                                            <li><a href="#">Item</a></li>
-                                            <li><a href="#">Item</a></li>
-                                            <li><a href="#">Item</a></li>
-                                        </ul>
-                                    </div>
-                                    <div>
-                                        <ul class="uk-nav uk-navbar-dropdown-nav">
-                                            <li class="uk-nav-header">Столы и стулья</li>
-                                            <li class="uk-nav-divider"></li>
-                                            <li><a href="#">Item</a></li>
-                                            <li><a href="#">Item</a></li>
-                                            <li><a href="#">Item</a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                        <li><a href="#">Новости</a></li>
-                        <li><a href="#">Портфолио</a></li>
-                        <li><a href="#">Акции</a></li>
-                        <li><a href="#">Контакты</a></li>
-                    </ul>
+					<?php
+					wp_nav_menu( [
+						'theme_location' => 'header-menu',
+						'walker'         => new Header_Menu_Walker(),
+					] );
+					?>
+<!--                    <ul class="uk-navbar-nav tm-header-menu">-->
+<!--                        <li class="uk-active"><a href="#">Главная</a></li>-->
+<!--                        <li>-->
+<!--                            <a href="#">Каталог</a>-->
+<!--                            <div class="uk-navbar-dropdown uk-navbar-dropdown-width-3">-->
+<!--                                <div class="uk-navbar-dropdown-grid uk-child-width-1-3" uk-grid>-->
+<!--                                    <div>-->
+<!--                                        <ul class="uk-nav uk-navbar-dropdown-nav">-->
+<!--                                            <li class="uk-nav-header">Кухни</li>-->
+<!--                                            <li class="uk-nav-divider"></li>-->
+<!--                                            <li><a href="#">Item</a></li>-->
+<!--                                            <li><a href="#">Item</a></li>-->
+<!--                                            <li><a href="#">Item</a></li>-->
+<!--                                        </ul>-->
+<!--                                    </div>-->
+<!--                                    <div>-->
+<!--                                        <ul class="uk-nav uk-navbar-dropdown-nav">-->
+<!--                                            <li class="uk-nav-header">Шкафы-купе</li>-->
+<!--                                            <li class="uk-nav-divider"></li>-->
+<!--                                            <li><a href="#">Item</a></li>-->
+<!--                                            <li><a href="#">Item</a></li>-->
+<!--                                            <li><a href="#">Item</a></li>-->
+<!--                                        </ul>-->
+<!--                                    </div>-->
+<!--                                    <div>-->
+<!--                                        <ul class="uk-nav uk-navbar-dropdown-nav">-->
+<!--                                            <li class="uk-nav-header">Столы и стулья</li>-->
+<!--                                            <li class="uk-nav-divider"></li>-->
+<!--                                            <li><a href="#">Item</a></li>-->
+<!--                                            <li><a href="#">Item</a></li>-->
+<!--                                            <li><a href="#">Item</a></li>-->
+<!--                                        </ul>-->
+<!--                                    </div>-->
+<!--                                    <div>-->
+<!--                                        <ul class="uk-nav uk-navbar-dropdown-nav">-->
+<!--                                            <li class="uk-nav-header">Кухни</li>-->
+<!--                                            <li class="uk-nav-divider"></li>-->
+<!--                                            <li><a href="#">Item</a></li>-->
+<!--                                            <li><a href="#">Item</a></li>-->
+<!--                                            <li><a href="#">Item</a></li>-->
+<!--                                        </ul>-->
+<!--                                    </div>-->
+<!--                                    <div>-->
+<!--                                        <ul class="uk-nav uk-navbar-dropdown-nav">-->
+<!--                                            <li class="uk-nav-header">Шкафы-купе</li>-->
+<!--                                            <li class="uk-nav-divider"></li>-->
+<!--                                            <li><a href="#">Item</a></li>-->
+<!--                                            <li><a href="#">Item</a></li>-->
+<!--                                            <li><a href="#">Item</a></li>-->
+<!--                                        </ul>-->
+<!--                                    </div>-->
+<!--                                    <div>-->
+<!--                                        <ul class="uk-nav uk-navbar-dropdown-nav">-->
+<!--                                            <li class="uk-nav-header">Столы и стулья</li>-->
+<!--                                            <li class="uk-nav-divider"></li>-->
+<!--                                            <li><a href="#">Item</a></li>-->
+<!--                                            <li><a href="#">Item</a></li>-->
+<!--                                            <li><a href="#">Item</a></li>-->
+<!--                                        </ul>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </li>-->
+<!--                        <li><a href="#">Новости</a></li>-->
+<!--                        <li><a href="#">Портфолио</a></li>-->
+<!--                        <li><a href="#">Акции</a></li>-->
+<!--                        <li><a href="#">Контакты</a></li>-->
+<!--                    </ul>-->
                 </div>
 
             </nav>

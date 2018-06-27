@@ -22,10 +22,14 @@ get_header(); ?>
 
         <div class="uk-position-center">
             <div class="uk-text-center tm-heading">
-                <h1 class="">Мебель на заказ</h1>
-                <p>Мы знаем, какой должна быть идеальная мебель.
-                    Забудьте о стандартах и шаблонах, только эксклюзивный дизайн, оригинальные решения под запросы и
-                    пожелания клиентов.</p>
+	            <?php // Show the selected frontpage content.
+	            if ( have_posts() ) :
+		            while ( have_posts() ) : the_post();
+			            get_template_part( 'template-parts/page/content', 'front-page' );
+		            endwhile;
+	            else :
+		            get_template_part( 'template-parts/post/content', 'none' );
+	            endif; ?>
             </div>
         </div>
     </div>

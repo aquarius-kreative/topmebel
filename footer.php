@@ -37,20 +37,44 @@
                             </a>
                         </p>
 					<?php endif; ?>
-	                <?php if ( ! empty( get_option( 'phone2' ) ) ): ?>
+					<?php if ( ! empty( get_option( 'phone2' ) ) ): ?>
                         <p class="uk-margin-remove">
                             <a href="tel:<?php echo get_option( 'phone2' ); ?>" style="color: white;">
-				                <?php echo get_option( 'phone2' ); ?>
+								<?php echo get_option( 'phone2' ); ?>
                             </a>
                         </p>
-	                <?php endif; ?>
-	                <?php if ( ! empty( get_option( 'phone3' ) ) ): ?>
+					<?php endif; ?>
+					<?php if ( ! empty( get_option( 'phone3' ) ) ): ?>
                         <p class="uk-margin-remove">
                             <a href="tel:<?php echo get_option( 'phone3' ); ?>" style="color: white;">
-				                <?php echo get_option( 'phone3' ); ?>
+								<?php echo get_option( 'phone3' ); ?>
                             </a>
                         </p>
-	                <?php endif; ?>
+					<?php endif; ?>
+                </div>
+            </div>
+            <div>
+                <div class="uk-flex uk-flex-center uk-grid-small">
+                    <div>
+                        <a href="">
+                            <object data="<?php echo get_template_directory_uri() . '/src/img/vk.svg' ?>"
+                                    type="image/svg+xml" height="55">
+
+                            </object>
+                        </a>
+                    </div>
+                    <div>
+                        <object data="<?php echo get_template_directory_uri() . '/src/img/ok.svg' ?>"
+                                type="image/svg+xml" height="55">
+
+                        </object>
+                    </div>
+                    <div>
+                        <object data="<?php echo get_template_directory_uri() . '/src/img/insta.svg' ?>"
+                                type="image/svg+xml" height="55">
+
+                        </object>
+                    </div>
                 </div>
             </div>
         </div>

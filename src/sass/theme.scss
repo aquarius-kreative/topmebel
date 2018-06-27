@@ -11,6 +11,7 @@ $base-body-font-family: 'Rubik', sans-serif;
 $base-heading-font-family: 'Rubik', sans-serif;
 $base-body-background: #ffffff;
 $navbar-nav-item-height: 50px;
+$dropdown-min-width: 250px;
 
 $tm-color-red: #b23b2f;
 $tm-color-blue: #332451;
@@ -29,7 +30,7 @@ body {
 }
 
 .tm-logo {
-  max-height: 45px;
+  max-height: 55px;
   img {
     height: 100%;
   }
@@ -40,12 +41,15 @@ body {
   & > li > a {
     font-weight: 600;
     color: #ffd6d3;
-    &:active {
-      color: white;
-    }
-    &:focus {
-      color: white;
-    }
+  }
+  & > li > a:active {
+    color: white;
+  }
+  & > li > a:focus {
+    color: white;
+  }
+  & > li > a.uk-open {
+    color: white;
   }
   & > li.uk-active > a {
     color: white;

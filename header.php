@@ -39,6 +39,7 @@
 						'walker'         => new Header_Menu_Walker(),
 					] );
 					?>
+                    <a href="tel:<?php echo get_option('phone1')?>" uk-icon="icon: receiver; ratio: 1" class="uk-navbar-item tm-front-call"></a>
                 </div>
 
             </nav>
@@ -68,6 +69,7 @@
 				    'walker'         => new Header_Menu_Walker(),
 			    ] );
 			    ?>
+                <a href="tel:<?php echo get_option('phone1')?>" uk-icon="icon: receiver; ratio: 1" class="uk-navbar-item"></a>
             </div>
         </nav>
     </div>

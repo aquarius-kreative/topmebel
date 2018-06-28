@@ -6,7 +6,7 @@
 get_header(); ?>
 
 	<div class="wrap">
-		<div id="primary" class="content-area uk-margin-large-top uk-margin-large-bottom">
+		<div id="primary" class="content-area uk-margin-top uk-margin-large-bottom">
 			<main id="main" class="uk-container" role="main">
 
 				<?php

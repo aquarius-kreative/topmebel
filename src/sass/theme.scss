@@ -12,6 +12,13 @@ $base-heading-font-family: 'Rubik', sans-serif;
 $base-body-background: #ffffff;
 $navbar-nav-item-height: 50px;
 $dropdown-min-width: 250px;
+$navbar-nav-item-color: #332451;
+$navbar-nav-item-hover-color: #b23b2f;
+$navbar-nav-item-active-color: #b23b2f;
+$navbar-dropdown-nav-item-color: #332451;
+$navbar-dropdown-nav-item-hover-color: #b23b2f;
+$navbar-dropdown-nav-sublist-item-color: rgba(51, 36, 81, 0.8);
+$navbar-dropdown-nav-sublist-item-hover-color: #b23b2f;
 
 $tm-color-red: #b23b2f;
 $tm-color-blue: #332451;
@@ -34,6 +41,11 @@ body {
   img {
     height: 100%;
   }
+}
+
+.tm-header-line {
+  padding: 5px 0;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
 }
 
 .tm-header-menu {
@@ -129,5 +141,15 @@ body {
     right: 0;
     height: 44px;
     background-repeat: repeat-x;
+  }
+}
+
+.tm-social-icon {
+  height: 55px;
+  opacity: .4;
+  transition: .3s all ease-out;
+
+  &:hover {
+    opacity: 1;
   }
 }

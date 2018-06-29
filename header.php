@@ -12,7 +12,7 @@
     <meta name="theme-color" content="#b23b2f">
 </head>
 <body <?php echo body_class(); ?>>
-<header class="tm-header">
+<header class="tm-header uk-position-relative">
 	<?php if ( is_front_page() ): ?>
         <div class="uk-position-top uk-position-z-index">
             <nav class="uk-navbar-container uk-navbar-transparent uk-container" uk-navbar>

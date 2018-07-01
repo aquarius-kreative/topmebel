@@ -17,8 +17,18 @@ add_filter( 'get_the_archive_title', function ( $title ) {
 
 		$title = '<span class="vcard">' . get_the_author() . '</span>';
 
+	} elseif ( is_archive() ) {
+
+		$title = single_tag_title( '', false );
+
 	}
 
 	return $title;
 
 } );
+
+add_filter('toolset_button_add_repetition_text', 'toolset_button_add_repetition_text', 10, 2);
+function toolset_button_add_repetition_text($text, $config)
+{
+	return '+ Добавить';
+}

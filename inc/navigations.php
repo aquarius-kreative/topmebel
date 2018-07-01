@@ -6,9 +6,9 @@
 add_action( 'after_setup_theme', 'topmebel_navigations' );
 function topmebel_navigations() {
 	register_nav_menus( array(
-			'header-menu' => 'Меню в шапке',
-			'mobile-menu' => 'Мобильное меню',
-			'footer-menu' => 'Меню в подвале'
+			'header-menu'  => 'Меню в шапке',
+			'catalog-menu' => 'Меню в каталоге',
+			'footer-menu'  => 'Меню в подвале'
 		)
 	);
 }
@@ -19,8 +19,13 @@ function filter_header_menu_args( $args ) {
 		$args['container']  = false;
 		$args['items_wrap'] = '<ul class="%2$s">%3$s</ul>';
 		$args['menu_class'] = 'uk-navbar-nav tm-header-menu';
-		if (!is_front_page())
+		if ( ! is_front_page() ) {
 			$args['menu_class'] = 'uk-navbar-nav tm-primary-menu';
+		}
+	}
+
+	if ( $args['theme_location'] === 'catalog-menu' ) {
+		$args['menu_class'] = 'uk-nav uk-nav-primary';
 	}
 
 	return $args;
@@ -45,6 +50,12 @@ function filter_header_menu_css_classes( $classes, $item, $args, $depth ) {
 		}
 	}
 
+	if ( $args->theme_location === 'catalog-menu' ) {
+		if ( $item->current ) {
+			$classes[] = 'uk-active';
+		}
+	}
+
 	return $classes;
 }
 
@@ -55,6 +66,12 @@ function filter_nav_menu_submenu_css_class( $classes, $args, $depth ) {
 		$classes = [
 			'uk-nav',
 			'uk-navbar-dropdown-nav',
+		];
+	}
+
+	if ( $args->theme_location === 'catalog-menu' ) {
+		$classes = [
+			'uk-nav-sub',
 		];
 	}
 

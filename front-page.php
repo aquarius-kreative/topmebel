@@ -37,72 +37,50 @@ get_header(); ?>
     <div class="tm-frontpage uk-padding uk-padding-remove-horizontal uk-margin-large-bottom">
         <div class="uk-container">
             <div class="uk-card uk-card-small uk-text-center uk-margin-bottom uk-card-body">
-                <h2 class="">Каталог продукции</h2>
+                <h2 class="page-title uk-text-center">Каталог продукции</h2>
                 <p>Предлагаем шкафы-купе, кухни и спальни, офисную мебель, детские, гордеробные. Любая мебель на
                     заказ в разных дизайнерских вариациях.</p>
             </div>
-            <div class="uk-flex uk-flex-wrap uk-child-width-1-3 uk-grid-small uk-grid-match" uk-grid>
-                <div>
-                    <a href="#" class="tm-product uk-card-hover uk-position-relative">
-                        <div class="uk-cover-container">
-                            <canvas height="300"></canvas>
-                            <img src="<?php echo get_template_directory_uri() . '/img/slide.jpg'; ?>" alt="" uk-cover>
-                        </div>
-                        <div class="tm-product-head">
-                            <h3>Кухни</h3>
-                            <p class="uk-margin-remove">от 13000 руб/м.п</p>
-                        </div>
-                    </a>
+			<?php
+			$catalogs = get_categories( array(
+				'parent'     => 0,
+				'orderby'    => 'ID',
+				'order'      => 'ASC',
+				'taxonomy'   => 'catalogs',
+				'pad_counts' => true,
+			) );
+			foreach ( $catalogs as $catalog ):
+				?>
+                <h3 class="uk-heading-divider"><?php echo $catalog->name; ?></h3>
+                <div class="uk-flex uk-flex-wrap uk-child-width-1-3 uk-grid-small uk-grid-match" uk-grid>
+					<?php
+					$products = new WP_Query(
+						array(
+							'posts_per_page' => - 1,
+							'post_type'      => 'products',
+							'order'          => 'ASC',
+							'tax_query'      => array(
+								array(
+									'taxonomy'         => 'catalogs',
+									'field'            => 'term_id',
+									'terms'            => $catalog->term_id,
+									'include_children' => true
+								)
+							)
+						)
+					);
+					while ( $products->have_posts() ) : $products->the_post();
+
+						get_template_part( 'template-parts/page/content', 'catalog' );
+
+					endwhile; // End of the loop.
+					wp_reset_postdata();
+					?>
                 </div>
-                <div>
-                    <a href="#" class="tm-product uk-card-hover uk-position-relative">
-                        <div class="uk-cover-container">
-                            <canvas height="300"></canvas>
-                            <img src="<?php echo get_template_directory_uri() . '/img/slide1.jpg'; ?>" alt="" uk-cover>
-                        </div>
-                        <div class="tm-product-head">
-                            <h3>Шкафы-купе</h3>
-                            <p class="uk-margin-remove">от 12000 руб/м.п</p>
-                        </div>
-                    </a>
-                </div>
-                <div>
-                    <a href="#" class="tm-product uk-card-hover uk-position-relative">
-                        <div class="uk-cover-container">
-                            <canvas height="300"></canvas>
-                            <img src="<?php echo get_template_directory_uri() . '/img/slide.jpg'; ?>" alt="" uk-cover>
-                        </div>
-                        <div class="tm-product-head">
-                            <h3>Кухни</h3>
-                            <p class="uk-margin-remove">от 13000 руб/м.п</p>
-                        </div>
-                    </a>
-                </div>
-                <div>
-                    <a href="#" class="tm-product uk-card-hover uk-position-relative">
-                        <div class="uk-cover-container">
-                            <canvas height="300"></canvas>
-                            <img src="<?php echo get_template_directory_uri() . '/img/slide.jpg'; ?>" alt="" uk-cover>
-                        </div>
-                        <div class="tm-product-head">
-                            <h3>Кухни</h3>
-                            <p class="uk-margin-remove">от 13000 руб/м.п</p>
-                        </div>
-                    </a>
-                </div>
-                <div>
-                    <a href="#" class="tm-product uk-card-hover uk-position-relative">
-                        <div class="uk-cover-container">
-                            <canvas height="300"></canvas>
-                            <img src="<?php echo get_template_directory_uri() . '/img/slide.jpg'; ?>" alt="" uk-cover>
-                        </div>
-                        <div class="tm-product-head">
-                            <h3>Кухни</h3>
-                            <p class="uk-margin-remove">от 13000 руб/м.п</p>
-                        </div>
-                    </a>
-                </div>
-            </div>
+
+			<?php
+			endforeach;
+			?>
         </div>
     </div>
 

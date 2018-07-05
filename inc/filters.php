@@ -27,6 +27,7 @@ add_filter( 'get_the_archive_title', function ( $title ) {
 
 } );
 
+//кнопка добавить изображение
 add_filter('toolset_button_add_repetition_text', 'toolset_button_add_repetition_text', 10, 2);
 function toolset_button_add_repetition_text($text, $config)
 {

@@ -1,6 +1,7 @@
 <?php
 /**
- * @package topmebel.
+ * @package topmebel
+ * created by akweb
  */
 ?>
 
@@ -20,15 +21,15 @@
         <a href="#product-<?php the_ID(); ?>" uk-toggle class="tm-product-more uk-position-center">Подробнее</a>
     </div>
     <div id="product-<?php the_ID(); ?>" class="uk-flex-top uk-modal-container" uk-modal>
-        <div class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical">
+        <div class="uk-modal-dialog uk-margin-auto-vertical">
             <button class="uk-modal-close-default" type="button" uk-close></button>
-            <div class="uk-modal-header uk-padding-remove">
+            <div class="uk-modal-header uk-light uk-modal-body tm-background-red">
                 <h3 class="uk-margin-remove"><?php echo get_the_term_list( $post->ID, 'catalogs', '', ', ' ); ?></h3>
                 <h4 class="uk-margin-remove"><?php the_title();
 					echo ' ' . types_render_field( "price", array() ); ?></h4>
             </div>
-            <div class="uk-flex uk-modal-body uk-flex-wrap uk-grid-small uk-grid-divider" uk-grid>
-                <div class="uk-width-3-4">
+            <div class="uk-flex uk-flex-wrap uk-grid-small" uk-grid>
+                <div class="uk-width-3-4 uk-modal-body">
                     <div class="uk-margin-auto" uk-slideshow="min-height: 400; max-height: 600; animation: fade"
                          style="max-width: 600px;">
 
@@ -82,19 +83,20 @@
                     </div>
 
                 </div>
-                <div class="uk-width-1-4">
+                <div class="uk-width-1-4 tm-background-blue uk-light uk-modal-body">
 					<?php the_content(); ?>
                 </div>
             </div>
-            <div class="uk-modal-footer">
+            <div class="uk-modal-footer tm-background-blue">
                 <p uk-margin>
-                    <button class="uk-button uk-button-default">Связаться с дизайнером</button>
-                    <button class="uk-button uk-button-default">Заказать обратный звонок</button>
-                    <button class="uk-button uk-button-default">Рассчитать стоимость</button>
+                    <button class="uk-button tm-background-red uk-button-danger uk-button-default">Связаться с дизайнером</button>
+                    <button class="uk-button tm-background-red uk-button-danger uk-button-default">Заказать обратный звонок</button>
+                    <button class="uk-button tm-background-red uk-button-danger uk-button-default">Рассчитать стоимость</button>
                 </p>
             </div>
         </div>
     </div>
 </div>
+
 
 

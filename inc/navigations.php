@@ -19,9 +19,6 @@ function filter_header_menu_args( $args ) {
 		$args['container']  = false;
 		$args['items_wrap'] = '<ul class="%2$s">%3$s</ul>';
 		$args['menu_class'] = 'uk-navbar-nav tm-header-menu';
-		if ( ! is_front_page() ) {
-			$args['menu_class'] = 'uk-navbar-nav tm-primary-menu';
-		}
 	}
 
 	if ( $args['theme_location'] === 'catalog-menu' ) {

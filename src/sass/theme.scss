@@ -27,6 +27,7 @@ $nav-primary-item-active-color: #b23b2f;
 $nav-primary-sublist-item-color: #b23b2f;
 $nav-primary-sublist-item-hover-color: #332451;
 $nav-primary-sublist-item-active-color: #332451;
+$close-color: #ffffff;
 
 $tm-color-red: #b23b2f;
 $tm-color-blue: #332451;
@@ -52,8 +53,8 @@ body {
 }
 
 .tm-header-line {
-  padding: 5px 0;
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+  background: $tm-color-red;
 }
 
 .tm-header-menu {
@@ -202,4 +203,12 @@ body {
   &:hover {
     background: white;
   }
+}
+
+.tm-background-red {
+  background-color: $tm-color-red;
+}
+
+.tm-background-blue {
+  background-color: $tm-color-blue;
 }

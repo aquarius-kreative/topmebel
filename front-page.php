@@ -71,7 +71,7 @@ get_header(); ?>
 					);
 					while ( $products->have_posts() ) : $products->the_post();
 
-						get_template_part( 'template-parts/page/content', 'catalog' );
+						get_template_part( 'template-parts/catalog/product', 'view' );
 
 					endwhile; // End of the loop.
 					wp_reset_postdata();

@@ -36,9 +36,9 @@ function display_phone2() {
 	<?php
 }
 
-function display_phone3() {
+function display_emails() {
 	?>
-    <input type="text" name="phone3" id="phone3" value="<?php echo get_option('phone3'); ?>" />
+    <input type="text" name="emails" id="emails" value="<?php echo get_option('emails'); ?>" />
 	<?php
 }
 
@@ -48,12 +48,12 @@ function display_theme_panel_fields() {
 	add_settings_field( "address", "Адрес", "display_address", "topmebel-options", "contacts" );
 	add_settings_field( "phone1", "Телефон #1", "display_phone1", "topmebel-options", "contacts" );
 	add_settings_field( "phone2", "Телефон #2", "display_phone2", "topmebel-options", "contacts" );
-	add_settings_field( "phone3", "Телефон #3", "display_phone3", "topmebel-options", "contacts" );
+	add_settings_field( "emails", "Почта для получения писем через запятую.", "display_emails", "topmebel-options", "contacts" );
 
 	register_setting( "contacts", "address" );
 	register_setting( "contacts", "phone1" );
 	register_setting( "contacts", "phone2" );
-	register_setting( "contacts", "phone3" );
+	register_setting( "contacts", "emails" );
 }
 
 add_action( "admin_init", "display_theme_panel_fields" );

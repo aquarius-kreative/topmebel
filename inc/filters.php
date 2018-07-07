@@ -33,3 +33,18 @@ function toolset_button_add_repetition_text($text, $config)
 {
 	return '+ Добавить';
 }
+
+//имя почты
+add_filter( 'wp_mail_from_name', 'tm_wp_mail_from_name' );
+function tm_wp_mail_from_name( $email_from ){
+	return 'Топ Мебель';
+}
+
+add_filter( 'wp_mail_from', 'tm_wp_mail_from' );
+function tm_wp_mail_from( $email_address ){
+	return 'info@top-meb.ru';
+}
+
+add_filter( 'wp_mail_content_type', function($content_type){
+	return "text/html";
+});

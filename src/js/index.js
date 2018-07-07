@@ -9,7 +9,7 @@ const feedbackForm = $('#tm-feedback');
 if (feedbackForm) {
     feedbackForm.on('submit', function (event) {
         event.preventDefault();
-        $('button[type=submit]').disable().html(`<div uk-spinner></div>`);
+        $('button[type=submit]').html(`<div uk-spinner></div>`);
         const data = {
             action: 'tm_feedback',
             nonce_code: tmajax.nonce,
@@ -22,7 +22,7 @@ if (feedbackForm) {
                     <p>Ваше сообщение отправлено.</p>
                 </div>
             `);
-            $('button[type=submit]').enable().html('Отправить');
+            $('button[type=submit]').html('Отправить');
             feedbackForm[0].reset();
         });
     });

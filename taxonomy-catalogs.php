@@ -11,6 +11,11 @@ get_header(); ?>
 					<?php
 					the_archive_title( '<h1 class="page-title uk-text-center">', '</h1>' );
 					the_archive_description( '<div class="taxonomy-description uk-text-center">', '</div>' );
+					if ( function_exists( 'yoast_breadcrumb' ) ) {
+						yoast_breadcrumb( '
+                        <p id="breadcrumbs">', '</p>
+                        ' );
+					}
 					?>
                 </header><!-- .page-header -->
                 <br>

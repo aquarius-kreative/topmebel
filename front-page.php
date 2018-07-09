@@ -6,14 +6,17 @@
 
 get_header(); ?>
     <div class="uk-position-relative uk-visible-toggle uk-light"
-         uk-slideshow="autoplay: true; max-height: 790; animation: fade">
+         uk-slideshow="autoplay: true; autoplay-interval: 3000; pause-on-hover: false; max-height: 790; animation: fade">
         <ul class="uk-slideshow-items">
-            <li>
-                <img src="<?php echo get_template_directory_uri() . '/img/slide.jpg'; ?>" alt="" uk-cover>
-            </li>
-            <li>
-                <img src="<?php echo get_template_directory_uri() . '/img/slide1.jpg'; ?>" alt="" uk-cover>
-            </li>
+			<?php
+			$slides = esc_attr( get_option( 'slides' ) );
+			if ( ! empty( $slides ) ) {
+				$ids = explode( ",", $slides );
+				foreach ( $ids as $id ) {
+					echo '<li><img src="'.wp_get_attachment_image_url( $id, 'full' ).'" uk-cover></li>';
+				}
+			}
+			?>
         </ul>
         <div class="tm-header-fog"></div>
         <a class="uk-position-center-left uk-position-small uk-hidden-hover" href="#" uk-slidenav-previous
@@ -36,10 +39,12 @@ get_header(); ?>
     </div>
     <div class="tm-frontpage uk-padding uk-padding-remove-horizontal uk-margin-large-bottom">
         <div class="uk-container">
-            <div class="uk-card uk-card-small uk-text-center uk-margin-bottom uk-card-body">
-                <h2 class="page-title uk-text-center">Каталог продукции</h2>
-                <p>Предлагаем шкафы-купе, кухни и спальни, офисную мебель, детские, гордеробные. Любая мебель на
-                    заказ в разных дизайнерских вариациях.</p>
+            <div class="uk-card uk-card-small uk-text-center uk-card-body">
+				<?php
+				if ( function_exists( 'dynamic_sidebar' ) ) {
+					dynamic_sidebar( 'front-top-a' );
+				}
+				?>
             </div>
 			<?php
 			$catalogs = get_categories( array(

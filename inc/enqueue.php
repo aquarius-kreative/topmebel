@@ -12,3 +12,10 @@ function topmebel_load_scripts() {
 }
 
 add_action( 'wp_enqueue_scripts', 'topmebel_load_scripts' );
+
+function topmebel_admin_load_scripts() {
+	wp_register_script('tm-admin', get_template_directory_uri() . '/admin/js/tm-admin.js', array('jquery'), null, true);
+	wp_enqueue_script('tm-admin');
+}
+
+add_action('admin_enqueue_scripts', 'topmebel_admin_load_scripts');

@@ -24,7 +24,9 @@
         <div class="uk-modal-dialog uk-margin-auto-vertical">
             <button class="uk-modal-close-default" type="button" uk-close></button>
             <div class="uk-modal-header uk-light uk-modal-body tm-background-red">
-                <h3 class="uk-margin-remove"><?php echo get_the_term_list( $post->ID, 'catalogs', '', ', ' ); ?></h3>
+                <h3 class="uk-margin-remove">
+                    <?php echo get_the_term_list( $post->ID, 'catalogs', '', ', ' ); ?>
+                </h3>
                 <h4 class="uk-margin-remove"><?php the_title();
 					echo ' ' . types_render_field( "price", array() ); ?></h4>
             </div>

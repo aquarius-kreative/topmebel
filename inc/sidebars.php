@@ -5,12 +5,12 @@
 
 function topmebel_widgets_init() {
 	register_sidebar( array(
-		'name'          => __( 'Шапка сайта', 'topmebel' ),
-		'id'            => 'header-sidebar',
+		'name'          => __( 'Главная: Перед контентом', 'topmebel' ),
+		'id'            => 'front-top-a',
 		'before_widget' => '<div id="%1$s" class="widget %2$s">',
 		'after_widget'  => '</div>',
-		'before_title'  => '<h5 class="widget-title">',
-		'after_title'   => '</h5>',
+		'before_title'  => '<h2 class="page-title uk-text-center">',
+		'after_title'   => '</h2>',
 	) );
 	register_sidebar( array(
 		'name'          => __( 'Подвал', 'topmebel' ),

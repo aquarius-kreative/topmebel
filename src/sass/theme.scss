@@ -212,3 +212,43 @@ body {
 .tm-background-blue {
   background-color: $tm-color-blue;
 }
+
+.portfolio-item {
+  z-index: auto;
+  position: relative;
+  margin: 15px;
+  padding: 3px;
+  &:hover .overlay-link {
+    opacity: 1;
+  }
+  &:before {
+    content: " ";
+    transform: rotate(-2deg);
+    top: 0;
+    z-index: -2;
+    background-color: $tm-color-blue;
+    display: block;
+    height: 100%;
+    left: 0;
+    position: absolute;
+    width: 100%;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.25);
+  }
+  &:after {
+    content: " ";
+    transform: rotate(2deg);
+    top: 0;
+    z-index: -2;
+    background-color: $tm-color-red;
+    display: block;
+    height: 100%;
+    left: 0;
+    position: absolute;
+    width: 100%;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.25);
+  }
+  .overlay-link {
+    opacity: 0;
+    transition: opacity .3s ease-out;
+  }
+}

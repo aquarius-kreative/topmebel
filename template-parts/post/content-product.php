@@ -19,11 +19,11 @@
 		}
 		?>
     </header>
-    <div class="uk-card">
+    <div class="uk-card uk-margin">
         <div class="uk-card-header uk-light tm-background-red">
             <h3 class="uk-card-title"><?php echo 'Цена ' . types_render_field( "price", array() ); ?></h3>
         </div>
-        <div class="uk-card-body">
+        <div class="uk-card-body uk-padding-small">
             <div class="uk-flex uk-flex-wrap uk-grid-small" uk-grid>
                 <div class="uk-width-3-4">
                     <div class="uk-margin-auto" uk-slideshow="min-height: 400; max-height: 600; animation: fade"

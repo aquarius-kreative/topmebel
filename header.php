@@ -10,8 +10,8 @@
     <link rel="profile" href="http://gmpg.org/xfn/11">
 	<?php wp_head(); ?>
     <meta name="theme-color" content="#b23b2f">
-    <meta name="google-site-verification" content="FPutgVoySZkcM9NdDblgBP-Scu6BWheJMmXV2sZqot0" />
-    <meta name="yandex-verification" content="052402b124b807f7" />
+    <meta name="google-site-verification" content="lnfHQvIZec8Gy5Pf1rB2VfWIMkLNpoSf632sIToH10E" />
+    <meta name="yandex-verification" content="ec4ed3bb25b4a8f8" />
 </head>
 <body <?php echo body_class(); ?>>
 <header class="tm-header uk-position-relative">

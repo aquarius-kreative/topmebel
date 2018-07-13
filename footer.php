@@ -12,9 +12,9 @@
 		<?php endif; ?>
         <div class="uk-text-center">
             <!-- Yandex.Metrika informer -->
-            <a href="https://metrika.yandex.ru/stat/?id=49513054&amp;from=informer"
-               target="_blank" rel="nofollow"><img src="https://informer.yandex.ru/informer/49513054/3_1_FFFFFFFF_EFEFEFFF_0_pageviews"
-                                                   style="width:88px; height:31px; border:0;" alt="Яндекс.Метрика" title="Яндекс.Метрика: данные за сегодня (просмотры, визиты и уникальные посетители)" class="ym-advanced-informer" data-cid="49513054" data-lang="ru" /></a>
+            <a href="https://metrika.yandex.ru/stat/?id=49597750&amp;from=informer"
+               target="_blank" rel="nofollow"><img src="https://informer.yandex.ru/informer/49597750/3_1_FFFFFFFF_EFEFEFFF_0_pageviews"
+                                                   style="width:88px; height:31px; border:0;" alt="Яндекс.Метрика" title="Яндекс.Метрика: данные за сегодня (просмотры, визиты и уникальные посетители)" class="ym-advanced-informer" data-cid="49597750" data-lang="ru" /></a>
             <!-- /Yandex.Metrika informer -->
 
             <!-- Yandex.Metrika counter -->
@@ -22,8 +22,8 @@
                 (function (d, w, c) {
                     (w[c] = w[c] || []).push(function() {
                         try {
-                            w.yaCounter49513054 = new Ya.Metrika2({
-                                id:49513054,
+                            w.yaCounter49597750 = new Ya.Metrika2({
+                                id:49597750,
                                 clickmap:true,
                                 trackLinks:true,
                                 accurateTrackBounce:true
@@ -43,7 +43,7 @@
                     } else { f(); }
                 })(document, window, "yandex_metrika_callbacks2");
             </script>
-            <noscript><div><img src="https://mc.yandex.ru/watch/49513054" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+            <noscript><div><img src="https://mc.yandex.ru/watch/49597750" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
             <!-- /Yandex.Metrika counter -->
         </div>
     </div>

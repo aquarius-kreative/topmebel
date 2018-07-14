@@ -33,13 +33,14 @@ get_header(); ?>
                     <div class="uk-width-expand">
 						<?php
 						$args     = array(
-							'post_type' => 'products',
-							'order'     => 'ASC',
-							'tax_query' => array(
+							'post_type'      => 'products',
+							'order'          => 'ASC',
+							'posts_per_page' => 15,
+							'tax_query'      => array(
 								array(
 									'taxonomy' => 'catalogs',
-                                    'field' => 'slug',
-                                    'terms' => $term
+									'field'    => 'slug',
+									'terms'    => $term
 								)
 							)
 						);
@@ -60,7 +61,17 @@ get_header(); ?>
 								wp_reset_postdata();
 								?>
                             </div>
+                            <div class="uk-text-center">
+								<?php the_posts_pagination( array(
+									'type'      => 'array',
+									'mid_size'  => 2,
+									'end_size'  => 2,
+									'prev_text' => '<span uk-pagination-previous></span>',
+									'next_text' => '<span uk-pagination-next></span>'
+								) ); ?>
+                            </div>
 						<?php
+
 						else :
 
 							get_template_part( 'template-parts/post/content', 'none' );

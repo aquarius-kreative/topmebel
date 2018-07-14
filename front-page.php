@@ -13,7 +13,7 @@ get_header(); ?>
 			if ( ! empty( $slides ) ) {
 				$ids = explode( ",", $slides );
 				foreach ( $ids as $id ) {
-					echo '<li><img data-imageid="'.$id.'" src="'.wp_get_attachment_image_url( $id, 'full' ).'" uk-cover></li>';
+					echo '<li><img data-imageid="' . $id . '" src="' . wp_get_attachment_image_url( $id, 'full' ) . '" uk-cover></li>';
 				}
 			}
 			?>
@@ -56,12 +56,14 @@ get_header(); ?>
 			) );
 			foreach ( $catalogs as $catalog ):
 				?>
-                <h3 class="uk-heading-divider"><a href="<?php echo get_category_link($catalog->term_id); ?>" title="<?php echo $catalog->name; ?> на заказ в Темрюке"><?php echo $catalog->name; ?></a></h3>
+                <h3 class="uk-heading-divider"><a href="<?php echo get_category_link( $catalog->term_id ); ?>"
+                                                  title="<?php echo $catalog->name; ?> на заказ в Темрюке"><?php echo $catalog->name; ?></a>
+                </h3>
                 <div class="uk-flex uk-flex-wrap uk-child-width-1-3 uk-grid-small uk-grid-match" uk-grid>
 					<?php
 					$products = new WP_Query(
 						array(
-							'posts_per_page' => - 1,
+							'posts_per_page' => 6,
 							'post_type'      => 'products',
 							'order'          => 'ASC',
 							'tax_query'      => array(
@@ -82,7 +84,11 @@ get_header(); ?>
 					wp_reset_postdata();
 					?>
                 </div>
-
+                <div class="uk-text-center uk-margin">
+                    <a href="<?php echo get_category_link( $catalog->term_id ); ?>"
+                       title="<?php echo $catalog->name; ?> на заказ в Темрюке"
+                       class="uk-button uk-button-primary"><?php echo $catalog->name; ?> показать все</a>
+                </div>
 			<?php
 			endforeach;
 			?>

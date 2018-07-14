@@ -29,7 +29,7 @@ if ( wp_doing_ajax() ) {
 		if (empty($to))
 			$to = 'haritonov.aka@gmail.com';
 		$data = array_map('esc_attr', $data);
-		$message = "<h3>Контакты</h3>
+		$message = "<h3>Клиент хочет с вами связаться.</h3>
 		<ul>
 		<li>Имя: ${data['client_name']}</li>
 		<li>Телефон: ${data['client_phone']}</li>
@@ -42,6 +42,35 @@ if ( wp_doing_ajax() ) {
 		<p><a href='https://top-meb.ru'>https://top-meb.ru</a></p>";
 
 		wp_mail( $to, 'Обратная связь Топ Мебель', $message );
+
+		// не забываем завершать PHP
+		wp_die();
+	}
+
+	add_action( 'wp_ajax_tm_designer', 'tm_designer_callback' );
+	add_action( 'wp_ajax_nopriv_tm_designer', 'tm_designer_callback' );
+	function tm_designer_callback() {
+		// проверяем nonce код, если проверка не пройдена прерываем обработку
+		check_ajax_referer( 'myajax-nonce', 'nonce_code' );
+		parse_str( $_POST['data'], $data );
+		$to = get_option('emails');
+		if (empty($to))
+			$to = 'haritonov.aka@gmail.com';
+		$data = array_map('esc_attr', $data);
+		$message = "<h3>Клиент хочет связаться с дизайнером.</h3>
+		<p>Клиент смотрел: <a href='${data['product_link']}'>${data['product_name']}</a></p>
+		<ul>
+		<li>Имя: ${data['client_name']}</li>
+		<li>Телефон: ${data['client_phone']}</li>
+		<li>Email: ${data['client_email']}</li>
+		</ul>
+		<h4>Сообщение:</h4>
+		<p>${data['client_message']}</p>
+		<hr>
+		<p>Топ Мебель - Мебель на заказ в г.Темрюке</p>
+		<p><a href='https://top-meb.ru'>https://top-meb.ru</a></p>";
+
+		wp_mail( $to, 'Запрос дизайнера - Топ Мебель', $message );
 
 		// не забываем завершать PHP
 		wp_die();

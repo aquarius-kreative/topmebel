@@ -51,9 +51,28 @@ function tm_wp_mail_from_name( $email_from ) {
 
 add_filter( 'wp_mail_from', 'tm_wp_mail_from' );
 function tm_wp_mail_from( $email_address ) {
-	return 'info@top-meb.ru';
+	return 'info@topmebel-zakaz.ru';
 }
 
 add_filter( 'wp_mail_content_type', function ( $content_type ) {
 	return "text/html";
 } );
+
+add_filter( 'navigation_markup_template', 'tm_navigation_template', 10, 2 );
+function tm_navigation_template( $template, $class ) {
+	return '<nav class="navigation %1$s" role="navigation">
+		<div class="nav-links">%3$s</div>
+	</nav>      
+	';
+}
+
+add_filter( 'excerpt_length', 'new_excerpt_length' );
+function new_excerpt_length( $length ) {
+	return 10;
+}
+
+add_filter( 'excerpt_more', 'new_excerpt_more' );
+function new_excerpt_more( $more ) {
+	global $post;
+	return ' <a href="' . get_permalink( $post->ID ) . '">...</a>';
+}

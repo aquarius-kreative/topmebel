@@ -9,8 +9,13 @@
     <div class="tm-product uk-card-hover uk-position-relative">
         <div class="uk-cover-container">
             <canvas height="270"></canvas>
-            <img src="<?php echo get_the_post_thumbnail_url( $post, 'full' ); ?>" alt="<?php the_title(); ?>"
-                 uk-cover>
+			<?php if ( has_post_thumbnail( $post ) ): ?>
+                <img src="<?php echo get_the_post_thumbnail_url( $post, 'full' ); ?>" alt="<?php the_title(); ?>"
+                     uk-cover>
+			<?php else: ?>
+                <img src="<?php echo get_template_directory_uri() . '/src/img/image.png'; ?>"
+                     alt="<?php the_title(); ?>" uk-cover>
+			<?php endif; ?>
         </div>
         <a href="<?php echo esc_url( get_permalink() ); ?>" class="">
             <div class="tm-product-head">

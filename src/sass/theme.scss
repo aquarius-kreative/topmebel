@@ -252,3 +252,23 @@ body {
     transition: opacity .3s ease-out;
   }
 }
+
+nav.navigation.pagination {
+  margin-top: 15px;
+  margin-bottom: 15px;
+  padding: 10px 5px;
+  .nav-links {
+    .page-numbers {
+      padding: 5px 10px;
+      border: 1px solid;
+      border-radius: 3px;
+      color: $tm-color-red;
+      &.current {
+        color: $tm-color-blue;
+      }
+      &.dots {
+        color: $tm-color-blue;
+      }
+    }
+  }
+}

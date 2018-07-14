@@ -18,7 +18,7 @@
             </div><!-- .entry-content -->
         </div>
         <div class="uk-width-1-4">
-            <form id="tm-feedback" class="uk-padding-small uk-light tm-background-blue">
+            <form id="tm-feedback" action="tm_feedback" class="uk-padding-small uk-light tm-background-blue">
                 <fieldset class="uk-fieldset">
 
                     <legend class="uk-legend uk-text-center">Форма обратной связи</legend>

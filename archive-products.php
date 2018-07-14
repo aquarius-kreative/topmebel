@@ -49,6 +49,15 @@ get_header(); ?>
 
 								?>
                             </div>
+                            <div class="uk-text-center">
+								<?php the_posts_pagination( array(
+									'type'      => 'array',
+									'mid_size'  => 2,
+									'end_size'  => 2,
+									'prev_text' => '<span uk-pagination-previous></span>',
+									'next_text' => '<span uk-pagination-next></span>'
+								) ); ?>
+                            </div>
 						<?php
 						else :
 

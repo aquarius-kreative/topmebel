@@ -37,9 +37,12 @@ get_header(); ?>
                     <div class="uk-width-expand">
                         <div class="uk-flex uk-flex-wrap uk-child-width-1-3 uk-grid-small uk-grid-match" uk-grid>
 							<?php
+							$paged    = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1;
 							$args     = array(
-								'post_type' => 'products',
-                                'order' => 'ASC'
+								'post_type'      => 'products',
+								'order'          => 'ASC',
+								'posts_per_page' => 15,
+								'paged'          => $paged
 							);
 							$products = new WP_Query( $args );
 							while ( $products->have_posts() ) : $products->the_post();
@@ -52,9 +55,21 @@ get_header(); ?>
 								endif;
 
 							endwhile; // End of the loop.
+							?>
+                            <div class="uk-text-center">
+								<?php get_the_posts_pagination( array(
+									'type'      => 'array',
+									'mid_size'  => 2,
+									'end_size'  => 2,
+									'prev_text' => '<span uk-pagination-previous></span>',
+									'next_text' => '<span uk-pagination-next></span>'
+								) ); ?>
+                            </div>
+							<?php
 							wp_reset_postdata();
 							?>
                         </div>
+
                     </div>
                 </div>
             </main><!-- #main -->

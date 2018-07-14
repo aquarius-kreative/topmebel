@@ -4,26 +4,41 @@ import Icons from 'uikit/dist/js/uikit-icons';
 
 UIkit.use(Icons);
 
-const feedbackForm = $('#tm-feedback');
+jQuery(document).ready(function ($) {
+    const feedbackForm = $('#tm-feedback');
+    const designerForm = $('#tm-designer-form');
 
-if (feedbackForm) {
-    feedbackForm.on('submit', function (event) {
-        event.preventDefault();
+    if (feedbackForm) {
+        feedbackForm.on('submit', function (event) {
+            event.preventDefault();
+            sendMessage(feedbackForm);
+        });
+    }
+
+    if (designerForm) {
+        designerForm.on('submit', function (event) {
+            event.preventDefault();
+            sendMessage(designerForm);
+        });
+    }
+
+    function sendMessage(form) {
         $('button[type=submit]').html(`<div uk-spinner></div>`);
         const data = {
-            action: 'tm_feedback',
+            action: form.attr('action'),
             nonce_code: tmajax.nonce,
-            data: feedbackForm.serialize()
+            data: form.serialize()
         }
         $.post(tmajax.url, data, function (response) {
-            feedbackForm.prepend(`
-                <div class="uk-alert-success" uk-alert>
-                    <a class="uk-alert-close" uk-close></a>
-                    <p>Ваше сообщение отправлено.</p>
-                </div>
-            `);
             $('button[type=submit]').html('Отправить');
-            feedbackForm[0].reset();
+            form[0].reset();
+            UIkit.notification({
+                message: 'Сообщение отправлено!',
+                status: 'primary',
+                pos: 'top-right',
+                timeout: 5000
+            });
         });
-    });
-}
+    }
+});
+

@@ -9,10 +9,10 @@
     <div class="uk-modal-dialog uk-margin-auto-vertical">
         <button class="uk-modal-close-default" type="button" uk-close></button>
         <form id="tm-designer-form" action="tm_designer" class="uk-form uk-margin-remove">
-        <div class="uk-modal-header uk-light uk-modal-body tm-background-red">
-            <h3 class="uk-margin-remove">Связаться с дизайнером</h3>
-        </div>
-        <div class="uk-modal-body">
+            <div class="uk-modal-header uk-light uk-modal-body tm-background-red">
+                <h3 class="uk-margin-remove">Связаться с дизайнером</h3>
+            </div>
+            <div class="uk-modal-body">
                 <fieldset class="uk-fieldset">
                     <div class="uk-margin">
                         <label class="uk-form-label" for="client_name">Ваше имя</label>
@@ -42,23 +42,23 @@
 
                 </fieldset>
 
-        </div>
-        <div class="uk-modal-footer uk-light tm-background-blue uk-text-right">
-            <a class="uk-button tm-background-red uk-button-danger uk-button-default"
-               href="#product-<?php the_ID(); ?>" uk-toggle>Назад</a>
-            <button type="submit" class="uk-button uk-button-default">Отправить</button>
-        </div>
+            </div>
+            <div class="uk-modal-footer uk-light tm-background-blue uk-text-right">
+                <a class="uk-button tm-background-red uk-button-danger uk-button-default"
+                   href="#product-<?php the_ID(); ?>" uk-toggle>Назад</a>
+                <button type="submit" class="uk-button uk-button-default">Отправить</button>
+            </div>
         </form>
     </div>
 </div>
 <div id="modal-callback-<?php the_ID(); ?>" class="uk-flex-top" uk-modal>
     <div class="uk-modal-dialog uk-margin-auto-vertical">
         <button class="uk-modal-close-default" type="button" uk-close></button>
-        <div class="uk-modal-header uk-light uk-modal-body tm-background-red">
-            <h3 class="uk-margin-remove">Заказать обратный звонок</h3>
-        </div>
-        <div class="uk-modal-body">
-            <form class="uk-form">
+        <form id="tm-call-form" class="uk-form uk-margin-remove" action="tm_call">
+            <div class="uk-modal-header uk-light uk-modal-body tm-background-red">
+                <h3 class="uk-margin-remove">Заказать обратный звонок</h3>
+            </div>
+            <div class="uk-modal-body">
                 <fieldset class="uk-fieldset">
                     <div class="uk-margin">
                         <label class="uk-form-label" for="client_name">Ваше имя</label>
@@ -71,25 +71,28 @@
                         <input class="uk-input" type="text" id="client_phone" name="client_phone"
                                placeholder="Ваш телефон" required>
                     </div>
+                    <input type="hidden" name="product_name" value="<?php the_title(); ?>">
+                    <input type="hidden" name="product_link" value="<?php echo esc_url( get_permalink() ); ?>">
 
                 </fieldset>
-            </form>
-        </div>
-        <div class="uk-modal-footer uk-light tm-background-blue uk-text-right">
-            <a class="uk-button tm-background-red uk-button-danger uk-button-default"
-               href="#product-<?php the_ID(); ?>" uk-toggle>Назад</a>
-            <a class="uk-button uk-button-default">Отправить</a>
-        </div>
+
+            </div>
+            <div class="uk-modal-footer uk-light tm-background-blue uk-text-right">
+                <a class="uk-button tm-background-red uk-button-danger uk-button-default"
+                   href="#product-<?php the_ID(); ?>" uk-toggle>Назад</a>
+                <button type="submit" class="uk-button uk-button-default">Отправить</button>
+            </div>
+        </form>
     </div>
 </div>
 <div id="modal-price-<?php the_ID(); ?>" class="uk-flex-top" uk-modal>
     <div class="uk-modal-dialog uk-margin-auto-vertical">
         <button class="uk-modal-close-default" type="button" uk-close></button>
-        <div class="uk-modal-header uk-light uk-modal-body tm-background-red">
-            <h3 class="uk-margin-remove">Рассчитать стоимость</h3>
-        </div>
-        <div class="uk-modal-body">
-            <form class="uk-form">
+        <form id="tm-price-form" class="uk-form uk-margin-remove" action="tm_price">
+            <div class="uk-modal-header uk-light uk-modal-body tm-background-red">
+                <h3 class="uk-margin-remove">Рассчитать стоимость</h3>
+            </div>
+            <div class="uk-modal-body">
                 <fieldset class="uk-fieldset">
                     <div class="uk-margin">
                         <label class="uk-form-label" for="client_name">Ваше имя</label>
@@ -114,14 +117,16 @@
                         <textarea class="uk-textarea" rows="5" id="client_message" name="client_message"
                                   placeholder="Сообщение"></textarea>
                     </div>
-
+                    <input type="hidden" name="product_name" value="<?php the_title(); ?>">
+                    <input type="hidden" name="product_link" value="<?php echo esc_url( get_permalink() ); ?>">
                 </fieldset>
-            </form>
-        </div>
-        <div class="uk-modal-footer uk-light tm-background-blue uk-text-right">
-            <a class="uk-button tm-background-red uk-button-danger uk-button-default"
-               href="#product-<?php the_ID(); ?>" uk-toggle>Назад</a>
-            <a class="uk-button uk-button-default">Отправить</a>
-        </div>
+
+            </div>
+            <div class="uk-modal-footer uk-light tm-background-blue uk-text-right">
+                <a class="uk-button tm-background-red uk-button-danger uk-button-default"
+                   href="#product-<?php the_ID(); ?>" uk-toggle>Назад</a>
+                <button type="submit" class="uk-button uk-button-default">Отправить</button>
+            </div>
+        </form>
     </div>
 </div>

@@ -25,10 +25,11 @@ if ( wp_doing_ajax() ) {
 		// проверяем nonce код, если проверка не пройдена прерываем обработку
 		check_ajax_referer( 'myajax-nonce', 'nonce_code' );
 		parse_str( $_POST['data'], $data );
-		$to = get_option('emails');
-		if (empty($to))
+		$to = get_option( 'emails' );
+		if ( empty( $to ) ) {
 			$to = 'haritonov.aka@gmail.com';
-		$data = array_map('esc_attr', $data);
+		}
+		$data    = array_map( 'esc_attr', $data );
 		$message = "<h3>Клиент хочет с вами связаться.</h3>
 		<ul>
 		<li>Имя: ${data['client_name']}</li>
@@ -39,7 +40,7 @@ if ( wp_doing_ajax() ) {
 		<p>${data['client_message']}</p>
 		<hr>
 		<p>Топ Мебель - Мебель на заказ в г.Темрюке</p>
-		<p><a href='https://top-meb.ru'>https://top-meb.ru</a></p>";
+		<p><a href='https://topmebel-zakaz.ru'>https://topmebel-zakaz.ru</a></p>";
 
 		wp_mail( $to, 'Обратная связь Топ Мебель', $message );
 
@@ -53,10 +54,11 @@ if ( wp_doing_ajax() ) {
 		// проверяем nonce код, если проверка не пройдена прерываем обработку
 		check_ajax_referer( 'myajax-nonce', 'nonce_code' );
 		parse_str( $_POST['data'], $data );
-		$to = get_option('emails');
-		if (empty($to))
+		$to = get_option( 'emails' );
+		if ( empty( $to ) ) {
 			$to = 'haritonov.aka@gmail.com';
-		$data = array_map('esc_attr', $data);
+		}
+		$data    = array_map( 'esc_attr', $data );
 		$message = "<h3>Клиент хочет связаться с дизайнером.</h3>
 		<p>Клиент смотрел: <a href='${data['product_link']}'>${data['product_name']}</a></p>
 		<ul>
@@ -68,9 +70,66 @@ if ( wp_doing_ajax() ) {
 		<p>${data['client_message']}</p>
 		<hr>
 		<p>Топ Мебель - Мебель на заказ в г.Темрюке</p>
-		<p><a href='https://top-meb.ru'>https://top-meb.ru</a></p>";
+		<p><a href='https://topmebel-zakaz.ru'>https://topmebel-zakaz.ru</a></p>";
 
 		wp_mail( $to, 'Запрос дизайнера - Топ Мебель', $message );
+
+		// не забываем завершать PHP
+		wp_die();
+	}
+
+	add_action( 'wp_ajax_tm_call', 'tm_call_callback' );
+	add_action( 'wp_ajax_nopriv_tm_call', 'tm_call_callback' );
+	function tm_call_callback() {
+		// проверяем nonce код, если проверка не пройдена прерываем обработку
+		check_ajax_referer( 'myajax-nonce', 'nonce_code' );
+		parse_str( $_POST['data'], $data );
+		$to = get_option( 'emails' );
+		if ( empty( $to ) ) {
+			$to = 'haritonov.aka@gmail.com';
+		}
+		$data    = array_map( 'esc_attr', $data );
+		$message = "<h3>Клиент хочет чтобы вы ему перезвонили.</h3>
+		<p>Клиент смотрел: <a href='${data['product_link']}'>${data['product_name']}</a></p>
+		<ul>
+		<li>Имя: ${data['client_name']}</li>
+		<li>Телефон: ${data['client_phone']}</li>
+		</ul>
+		<hr>
+		<p>Топ Мебель - Мебель на заказ в г.Темрюке</p>
+		<p><a href='https://topmebel-zakaz.ru'>https://topmebel-zakaz.ru</a></p>";
+
+		wp_mail( $to, 'Запрос на обратный звонок - Топ Мебель', $message );
+
+		// не забываем завершать PHP
+		wp_die();
+	}
+
+	add_action( 'wp_ajax_tm_price', 'tm_price_callback' );
+	add_action( 'wp_ajax_nopriv_tm_price', 'tm_price_callback' );
+	function tm_price_callback() {
+		// проверяем nonce код, если проверка не пройдена прерываем обработку
+		check_ajax_referer( 'myajax-nonce', 'nonce_code' );
+		parse_str( $_POST['data'], $data );
+		$to = get_option( 'emails' );
+		if ( empty( $to ) ) {
+			$to = 'haritonov.aka@gmail.com';
+		}
+		$data    = array_map( 'esc_attr', $data );
+		$message = "<h3>Клиент желает заказать просчет.</h3>
+		<p>Клиент смотрел: <a href='${data['product_link']}'>${data['product_name']}</a></p>
+		<ul>
+		<li>Имя: ${data['client_name']}</li>
+		<li>Телефон: ${data['client_phone']}</li>
+		<li>Email: ${data['client_email']}</li>
+		</ul>
+		<h4>Сообщение:</h4>
+		<p>${data['client_message']}</p>
+		<hr>
+		<p>Топ Мебель - Мебель на заказ в г.Темрюке</p>
+		<p><a href='https://topmebel-zakaz.ru'>https://topmebel-zakaz.ru</a></p>";
+
+		wp_mail( $to, 'Запрос рассчета стоимости - Топ Мебель', $message );
 
 		// не забываем завершать PHP
 		wp_die();

@@ -35,7 +35,7 @@ get_header(); ?>
 						$args     = array(
 							'post_type'      => 'products',
 							'order'          => 'ASC',
-							'posts_per_page' => 15,
+							'posts_per_page' => 30,
 							'tax_query'      => array(
 								array(
 									'taxonomy' => 'catalogs',

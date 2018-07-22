@@ -7,10 +7,12 @@
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
     <div class="uk-flex uk-grid-small uk-flex-wrap">
-        <div class="uk-width-3-4">
+        <div class="uk-width-1-1">
             <header class="entry-header">
-				<?php the_title( '<h1 class="page-title uk-text-center">', '</h1>' ); ?>
+		        <?php the_title( '<h1 class="page-title uk-text-center">', '</h1>' ); ?>
             </header><!-- .entry-header -->
+        </div>
+        <div class="uk-width-3-4">
             <div class="entry-content">
 				<?php
 				the_content();
@@ -54,6 +56,11 @@
                         <label class="uk-form-label" for="client_message">Сообщение</label>
                         <textarea class="uk-textarea" rows="5" id="client_message" name="client_message"
                                   placeholder="Сообщение"></textarea>
+                    </div>
+
+                    <div class="uk-margin uk-text-small">
+                        Отправляя форму, вы даете согласие на обработку своих персональных данных.
+                        <a href="<? echo site_url() . '/privacy-policy';?>">Узнать больше</a>
                     </div>
 
                     <div class="uk-margin">

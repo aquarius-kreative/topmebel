@@ -59,6 +59,19 @@ get_header(); ?>
                 <h3 class="uk-heading-divider"><a href="<?php echo get_category_link( $catalog->term_id ); ?>"
                                                   title="<?php echo $catalog->name; ?> на заказ в Темрюке"><?php echo $catalog->name; ?></a>
                 </h3>
+                <div class="uk-text-center">
+					<?php
+					$childs = get_categories( array( 'parent' => $catalog->cat_ID, 'taxonomy' => 'catalogs' ) );
+					if ( isset( $childs ) ) {
+						echo '<p uk-margin>';
+						foreach ( $childs as $child ) {
+							echo '<a class="uk-button uk-button-default uk-margin-small-right" href="' . get_category_link( $child->term_id ) . '" 
+							         title="' . $child->name . ' на заказ в Темрюке">' . $child->name . '</a>';
+						}
+						echo '</p>';
+					}
+					?>
+                </div>
                 <div class="uk-flex uk-flex-wrap uk-child-width-1-3 uk-grid-small uk-grid-match" uk-grid>
 					<?php
 					$products = new WP_Query(
@@ -66,6 +79,8 @@ get_header(); ?>
 							'posts_per_page' => 6,
 							'post_type'      => 'products',
 							'order'          => 'ASC',
+							'meta_key'       => 'wpcf-top',
+							'meta_value_num' => '1',
 							'tax_query'      => array(
 								array(
 									'taxonomy'         => 'catalogs',

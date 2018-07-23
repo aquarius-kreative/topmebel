@@ -8,9 +8,9 @@
 <div>
     <div class="tm-product uk-card-hover uk-position-relative">
         <div class="uk-cover-container">
-            <canvas height="270"></canvas>
+            <canvas width="400" height="300"></canvas>
 			<?php if ( has_post_thumbnail( $post ) ): ?>
-                <img src="<?php echo get_the_post_thumbnail_url( $post, 'full' ); ?>" alt="<?php the_title(); ?>"
+                <img src="<?php echo get_the_post_thumbnail_url( $post, 'large' ); ?>" alt="<?php the_title(); ?>"
                      uk-cover>
 			<?php else: ?>
                 <img src="<?php echo get_template_directory_uri() . '/src/img/image.png'; ?>"
@@ -37,13 +37,13 @@
             </div>
             <div class="uk-flex uk-flex-wrap uk-grid-small" uk-grid>
                 <div class="uk-width-3-4 uk-modal-body">
-                    <div class="uk-margin-auto" uk-slideshow="min-height: 400; max-height: 600; animation: fade"
-                         style="max-width: 600px;">
+                    <div class="uk-margin-auto" uk-slideshow="ratio: 4:3; animation: fade" style="max-width: 600px;">
 
                         <div class="uk-position-relative uk-visible-toggle uk-light">
                             <ul class="uk-slideshow-items">
-                                <li>
-                                    <img src="<?php echo get_the_post_thumbnail_url( $post, 'full' ); ?>" uk-cover>
+                                <li class="uk-text-center">
+                                    <img src="<?php echo get_the_post_thumbnail_url( $post, 'full' ); ?>"
+                                         class="tm-product-thumb">
                                 </li>
 								<?php
 								if ( ! empty( types_render_field( 'images', array() ) ) ):
@@ -53,7 +53,7 @@
 									) ) );
 									foreach ( $images as $image ):
 										?>
-                                        <li>
+                                        <li class="uk-text-center">
                                             <img src="<?php echo $image; ?>" uk-cover>
                                         </li>
 									<?php
@@ -66,8 +66,8 @@
                             <a class="uk-position-center-right uk-position-small uk-hidden-hover" href="#"
                                uk-slidenav-next
                                uk-slideshow-item="next"></a>
-                        </div>
 
+                        </div>
                         <div class="uk-margin-small-top">
                             <ul class="uk-thumbnav">
                                 <li uk-slideshow-item="0"><a href="#" class="uk-cover-container">
@@ -93,7 +93,6 @@
 								?>
                             </ul>
                         </div>
-
                     </div>
 
                 </div>

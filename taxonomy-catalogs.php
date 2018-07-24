@@ -31,6 +31,24 @@ get_header(); ?>
 						?>
                     </div>
                     <div class="uk-width-expand">
+                        <div class="uk-text-center">
+							<?php
+							$trm    = get_term_by( 'slug', $term, 'catalogs' );
+							$childs = get_terms( array(
+								'taxonomy'   => 'catalogs',
+								'hide_empty' => false,
+								'child_of'   => $trm->term_id
+							) );
+							if ( isset( $childs ) ) {
+								echo '<div class="uk-margin uk-flex uk-flex-center uk-flex-wrap uk-grid-small">';
+								foreach ( $childs as $child ) {
+									echo '<div class="uk-margin-small-bottom"><a class="uk-button uk-button-default" href="' . get_category_link( $child->term_id ) . '" 
+							         title="' . $child->name . ' на заказ в Темрюке">' . $child->name . '</a></div>';
+								}
+								echo '</div>';
+							}
+							?>
+                        </div>
 						<?php
 						$args     = array(
 							'post_type'      => 'products',

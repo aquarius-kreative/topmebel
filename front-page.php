@@ -63,12 +63,12 @@ get_header(); ?>
 					<?php
 					$childs = get_categories( array( 'parent' => $catalog->cat_ID, 'taxonomy' => 'catalogs' ) );
 					if ( isset( $childs ) ) {
-						echo '<p uk-margin>';
+						echo '<div class="uk-margin uk-flex uk-flex-center uk-flex-wrap uk-grid-small">';
 						foreach ( $childs as $child ) {
-							echo '<a class="uk-button uk-button-default uk-margin-small-right" href="' . get_category_link( $child->term_id ) . '" 
-							         title="' . $child->name . ' на заказ в Темрюке">' . $child->name . '</a>';
+							echo '<div class="uk-margin-small-bottom"><a class="uk-button uk-button-default" href="' . get_category_link( $child->term_id ) . '" 
+							         title="' . $child->name . ' на заказ в Темрюке">' . $child->name . '</a></div>';
 						}
-						echo '</p>';
+						echo '</div>';
 					}
 					?>
                 </div>

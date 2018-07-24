@@ -288,3 +288,19 @@ nav.navigation.pagination {
   max-height: 100%;
   position: absolute;
 }
+
+.tm-product-modal-footer {
+  position: relative;
+
+  &:before {
+    background: url("../img/div-violet.svg");
+    content: '';
+    display: block;
+    position: absolute;
+    top: -40px;
+    left: 0;
+    right: 0;
+    height: 41px;
+    background-repeat: repeat-x;
+  }
+}

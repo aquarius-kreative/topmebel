@@ -32,7 +32,8 @@
                         <div class="uk-position-relative uk-visible-toggle uk-light">
                             <ul class="uk-slideshow-items">
                                 <li>
-                                    <img src="<?php echo get_the_post_thumbnail_url( $post, 'full' ); ?>" uk-cover>
+                                    <img src="<?php echo get_the_post_thumbnail_url( $post, 'full' ); ?>"
+                                         class="tm-product-thumb">
                                 </li>
 								<?php
 								if ( ! empty( types_render_field( 'images', array() ) ) ):
@@ -43,7 +44,7 @@
 									foreach ( $images as $image ):
 										?>
                                         <li>
-                                            <img src="<?php echo $image; ?>" uk-cover>
+                                            <img src="<?php echo $image; ?>" class="tm-product-thumb">
                                         </li>
 									<?php
 									endforeach;
@@ -86,26 +87,28 @@
                     </div>
 
                 </div>
-                <div class="uk-width-1-4 tm-background-blue uk-light uk-modal-body">
+                <div class="uk-width-1-4 uk-modal-body">
 					<?php the_content(); ?>
+                    <div class="uk-margin uk-flex uk-flex-wrap uk-child-width-1-1 uk-grid-small uk-text-center">
+
+                        <button uk-toggle="target: #modal-designer-<?php the_ID(); ?>"
+                                class="uk-button tm-background-red uk-button-danger uk-margin-small-bottom uk-button-default">
+                            Связаться с дизайнером
+                        </button>
+
+                        <button uk-toggle="target: #modal-callback-<?php the_ID(); ?>"
+                                class="uk-button tm-background-red uk-button-danger uk-margin-small-bottom uk-button-default">
+                            Заказать звонок
+                        </button>
+
+                        <button uk-toggle="target: #modal-price-<?php the_ID(); ?>"
+                                class="uk-button tm-background-red uk-button-danger uk-margin-small-bottom uk-button-default">
+                            Рассчитать стоимость
+                        </button>
+
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="uk-card-footer tm-background-blue">
-            <p uk-margin>
-                <button uk-toggle="target: #modal-designer-<?php the_ID(); ?>"
-                        class="uk-button tm-background-red uk-button-danger uk-button-default">
-                    Связаться с дизайнером
-                </button>
-                <button uk-toggle="target: #modal-callback-<?php the_ID(); ?>"
-                        class="uk-button tm-background-red uk-button-danger uk-button-default">
-                    Заказать обратный звонок
-                </button>
-                <button uk-toggle="target: #modal-price-<?php the_ID(); ?>"
-                        class="uk-button tm-background-red uk-button-danger uk-button-default">
-                    Рассчитать стоимость
-                </button>
-            </p>
         </div>
     </div>
 	<?php

@@ -54,7 +54,7 @@
 									foreach ( $images as $image ):
 										?>
                                         <li class="uk-text-center">
-                                            <img src="<?php echo $image; ?>" uk-cover>
+                                            <img src="<?php echo $image; ?>" class="tm-product-thumb">
                                         </li>
 									<?php
 									endforeach;
@@ -96,12 +96,12 @@
                     </div>
 
                 </div>
-                <div class="uk-width-1-4 tm-background-blue uk-light uk-modal-body">
+                <div class="uk-width-1-4 uk-modal-body">
 					<?php the_content(); ?>
                 </div>
             </div>
-            <div class="uk-modal-footer tm-background-blue">
-                <p uk-margin>
+            <div class="uk-modal-footer uk-margin-top tm-product-modal-footer tm-background-blue">
+                <p class="uk-margin uk-text-center">
                     <button uk-toggle="target: #modal-designer-<?php the_ID(); ?>"
                             class="uk-button tm-background-red uk-button-danger uk-button-default">
                         Связаться с дизайнером

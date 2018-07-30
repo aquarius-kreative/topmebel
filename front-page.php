@@ -79,8 +79,12 @@ get_header(); ?>
 							'posts_per_page' => 6,
 							'post_type'      => 'products',
 							'order'          => 'ASC',
-							'meta_key'       => 'wpcf-top',
-							'meta_value_num' => '1',
+							'meta_query'     => array(
+								array(
+									'key' => 'wpcf-top',
+									'value' => '1',
+								),
+                            ),
 							'tax_query'      => array(
 								array(
 									'taxonomy'         => 'catalogs',

@@ -96,7 +96,7 @@
                     </div>
 
                 </div>
-                <div class="uk-width-1-4 uk-modal-body">
+                <div class="uk-width-1-4 uk-modal-body uk-overflow-auto" style="height: 600px">
 					<?php the_content(); ?>
                 </div>
             </div>
